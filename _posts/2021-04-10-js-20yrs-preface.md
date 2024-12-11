@@ -19,17 +19,19 @@ tags:
 <body>
     <h1>欢迎来到我的视频博客</h1>
 
-    <!-- 本地视频 -->
-    <video width="640" height="480" controls>
-        <source src="C:\Users\wangboss\Desktop\IMG_2307.mp4" type="video/mp4">
-        您的浏览器不支持HTML5视频标签。
-    </video>
+    <input type="file" id="videoInput" accept="video/*"/>
+    <video id="videoPlayer" width="640" height="480" controls></video>
 
-    <!-- 嵌入YouTube视频 -->
-    <iframe width="640" height="360" src="https://www.youtube.com/embed/视频ID" frameborder="0" allowfullscreen></iframe>
+    <script>
+        document.getElementById('videoInput').addEventListener('change', function() {
+            const file = this.files[0];
+            const url = URL.createObjectURL(file);
+            const videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.src = url;
+        });
+    </script>
 </body>
 </html>
-
 
 
 > 雪碧（doodlewind）邀请我给[《JavaScript 二十年》](https://zhuanlan.zhihu.com/p/373065151) 写的推荐序。
